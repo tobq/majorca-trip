@@ -5,20 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Majorca · 1–4 Oct</title>
 <meta property="og:title" content="Majorca · Thu 1 – Sun 4 Oct">
-<meta property="og:description" content="Hotels, flights, and a calculator for who pays what. Decide tonight.">
+<meta property="og:description" content="Hotels, flights and what each of us pays. Decide tonight.">
 <meta property="og:image" content="https://tobq.github.io/majorca-trip/img/art1.jpg">
 <style>
-:root{--bg:#fafaf9;--card:#fff;--ink:#1c1917;--muted:#78716c;--line:#e7e5e4;--accent:#0f766e;--accent-ink:#fff;--soft:#f0fdfa;--warn-soft:#fffbeb;--warn:#b45309;--bad:#b91c1c}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0a09;--card:#1c1917;--ink:#f5f5f4;--muted:#a8a29e;--line:#292524;--accent:#2dd4bf;--accent-ink:#042f2e;--soft:#042f2e;--warn-soft:#2a1f0a;--warn:#f59e0b;--bad:#f87171}}
-:root[data-theme="dark"]{--bg:#0c0a09;--card:#1c1917;--ink:#f5f5f4;--muted:#a8a29e;--line:#292524;--accent:#2dd4bf;--accent-ink:#042f2e;--soft:#042f2e;--warn-soft:#2a1f0a;--warn:#f59e0b;--bad:#f87171}
+:root{--bg:#fafaf9;--card:#fff;--ink:#1c1917;--muted:#78716c;--line:#e7e5e4;--accent:#0f766e;--accent-ink:#fff;--soft:#f0fdfa;--warn-soft:#fffbeb;--warn:#b45309}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0a09;--card:#1c1917;--ink:#f5f5f4;--muted:#a8a29e;--line:#292524;--accent:#2dd4bf;--accent-ink:#042f2e;--soft:#042f2e;--warn-soft:#2a1f0a;--warn:#f59e0b}}
+:root[data-theme="dark"]{--bg:#0c0a09;--card:#1c1917;--ink:#f5f5f4;--muted:#a8a29e;--line:#292524;--accent:#2dd4bf;--accent-ink:#042f2e;--soft:#042f2e;--warn-soft:#2a1f0a;--warn:#f59e0b}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
-main{max-width:780px;margin:0 auto;padding:40px 20px 80px}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 20px 80px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:start}
+header{grid-column:1/-1}
 h1{font-size:30px;line-height:1.15;margin:0 0 6px;letter-spacing:-.02em}
-h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin:48px 0 14px}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin:44px 0 14px}
+main>h2:first-child{margin-top:0}
 h3{font-size:18px;margin:0;letter-spacing:-.01em}p{margin:0 0 10px}
 a{color:var(--accent)}
-.sub{color:var(--muted);margin:0}.stamp{display:inline-block;margin-top:12px;font-size:12px;color:var(--muted)}
+.sub{color:var(--muted);margin:0}.stamp{display:inline-block;margin-top:10px;font-size:12px;color:var(--muted)}
 .card{background:var(--card);border-radius:16px;overflow:hidden;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.04)}
 .card .body{padding:18px}
 .pick{outline:2px solid var(--accent)}
@@ -32,10 +34,9 @@ a{color:var(--accent)}
 .meta{color:var(--muted);font-size:13px;margin:4px 0 14px}
 .split{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px}
 .cell{background:var(--bg);border-radius:12px;padding:10px 12px}
-.cell .n{font-size:12px;color:var(--muted)}.cell .v{font-size:20px;font-weight:650;letter-spacing:-.02em}.cell .x{font-size:12px;color:var(--muted)}
-.cell.hl{background:var(--soft)}
+.cell .n{font-size:12px;color:var(--muted)}.cell .v{font-size:20px;font-weight:650;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.cell .x{font-size:12px;color:var(--muted)}
 .fine{font-size:12.5px;color:var(--muted);margin:6px 0 12px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:14px;margin-top:10px}
 ul{margin:0;padding-left:18px}li{margin:3px 0}
 .pros li::marker{color:var(--accent)}.cons li::marker{color:var(--warn)}
 .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
@@ -54,130 +55,81 @@ td.r,th.r{text-align:right;white-space:nowrap}
 ol.steps{padding-left:20px;margin:0}ol.steps li{margin:10px 0}
 .note{background:var(--warn-soft);border-radius:14px;padding:12px 16px;font-size:14px}
 .muted{color:var(--muted);font-size:13px}footer{margin-top:48px;color:var(--muted);font-size:12px}
-/* calculator */
-.calc{background:var(--card);border-radius:16px;padding:18px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.04)}
-.seg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-.seg button{border:0;border-radius:999px;padding:8px 14px;font:600 13.5px/1 inherit;font-family:inherit;background:var(--bg);color:var(--ink);cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
-.row{margin:14px 0}
+/* split panel: sticky sidebar on desktop, sticky collapsible bar on mobile */
+aside{position:sticky;top:20px;grid-column:2;grid-row:2}
+main{grid-column:1;grid-row:2}
+.panel{background:var(--card);border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.04)}
+.panel summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.panel summary::-webkit-details-marker{display:none}
+.panel summary .t{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.panel summary .s{font-size:13px;font-weight:600}
+.panel summary svg{flex:none;transition:transform .2s;color:var(--muted)}
+.panel[open] summary svg{transform:rotate(180deg)}
+.pbody{padding:0 18px 18px}
+.row{margin:0 0 16px}
 .row .lab{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
 .row .lab b{font-variant-numeric:tabular-nums}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
 input[type=range]{width:100%;accent-color:var(--accent);height:24px;margin:0}
-input[type=range]:disabled{opacity:.35}
-.out .v{font-variant-numeric:tabular-nums}
-.st{font-size:12px;font-weight:600}
-.st.ok{color:var(--accent)}.st.over{color:var(--warn)}.st.bad{color:var(--bad)}
-.brk{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
-@media (max-width:560px){main{padding:28px 16px 64px}h1{font-size:26px}.cell .v{font-size:17px}.cell{padding:8px 9px}.two{grid-template-columns:1fr}.gal{height:190px}}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:0;border-radius:999px;padding:8px 12px;font:600 13px/1 inherit;font-family:inherit;background:var(--bg);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.sum{border-top:1px solid var(--line);padding-top:10px}
+.sum table{font-size:13px}.sum td,.sum th{padding:6px 4px}
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0;padding:28px 16px 64px}
+  aside{position:sticky;top:0;z-index:10;margin:16px -16px 24px;padding:8px 16px;background:var(--bg);grid-column:1;grid-row:auto}
+  main{grid-column:1;grid-row:auto}
+  .panel{box-shadow:0 2px 12px rgba(0,0,0,.08)}
+  .panel summary{padding:12px 16px}
+  .pbody{padding:0 16px 14px}
+}
+@media (max-width:560px){h1{font-size:26px}.cell .v{font-size:17px}.cell{padding:8px 9px}.two{grid-template-columns:1fr}.gal{height:190px}}
 </style>
 </head>
-<body><main>
+<body><div class="wrap">
 
+<header>
 <h1>Majorca · Thu 1 – Sun 4 Oct</h1>
 <p class="sub">Tobi, Nikhil &amp; Lewis · all flying out Thursday · 3 nights · nothing booked yet</p>
 <span class="stamp">Prices checked Sat 26 Sep, ~16:30. Last-minute prices move daily, so let's decide tonight.</span>
+</header>
 
-<h2>The plan in one line</h2>
-<div class="why">
-<b>Book one room for the three of us, split it, and everyone books their own flights</b> (Lewis's idea). This gets round loveholidays not letting Lewis join from Manchester, and it's cheaper than the Coronado package.
-</div>
-
-<h2>Options, ranked</h2>
-<p class="muted" style="margin-top:-6px">Each figure is that person's all-in cost: flights, room, airport taxis and tourist tax (food and nights out extra). Lewis's figures assume an underseat bag; a 10kg bag adds ~£50. Play with the split in the <a href="#calc">calculator</a>.</p>
-
-<div class="card pick">
-<div class="gal"><img src="img/art1.jpg" alt="Hotel Artmadams pool"><img src="img/art2.jpg" alt="Hotel Artmadams"><img src="img/art3.jpg" alt="Hotel Artmadams"></div>
-<div class="body">
-<span class="tag">Recommended</span>
-<div class="head"><h3>1 · Hotel Artmadams</h3><span class="price">£1,054 room · £351 each</span></div>
-<div class="meta">Palma city (Santa Catalina) · 4★ · 8.6 (2.1k reviews) · free spa: indoor + outdoor pools, hot tub, sauna · walk home from nights out<br>Triple room: 2 single beds + a sofa bed (25 m², snug)</div>
-<div class="split">
-<div class="cell"><div class="n">Tobi</div><div class="v">£575</div><div class="x">bed</div></div>
-<div class="cell"><div class="n">Nikhil</div><div class="v">£575</div><div class="x">bed</div></div>
-<div class="cell hl"><div class="n">Lewis</div><div class="v">£330</div><div class="x">sofa bed</div></div>
-</div>
-<p class="fine">Free cancellation until 29 Sep costs £1,168 instead (+~£38 each).</p>
-<div class="two"><ul class="pros"><li>In the middle of Palma's nightlife, walk home</li><li>Best spa of the lot</li></ul><ul class="cons"><li>Priciest of the four</li><li>Snug room for three</li></ul></div>
-<div class="btns"><a class="btn" href="https://www.booking.com/hotel/es/armadams.en-gb.html?checkin=2026-10-01&amp;checkout=2026-10-04&amp;group_adults=3&amp;no_rooms=1&amp;selected_currency=GBP" target="_blank" rel="noopener">See it &amp; book on Booking.com →</a></div>
-</div></div>
-
-<div class="card">
-<div class="gal"><img src="img/vil1.jpg" alt="Villa Velo pool" loading="lazy"><img src="img/vil2.jpg" alt="Villa Velo" loading="lazy"><img src="img/vil3.jpg" alt="Villa Velo" loading="lazy"></div>
-<div class="body">
-<span class="tag">Own rooms</span>
-<div class="head"><h3>2 · Villa Velo</h3><span class="price">£1,097 villa · £366 each</span></div>
-<div class="meta">Marratxí · 9.8 (31 reviews) · private pool · 15 min to Palma and the airport<br>4 bedrooms, so everyone gets their own room</div>
-<div class="split">
-<div class="cell"><div class="n">Tobi</div><div class="v">£537</div><div class="x">own room</div></div>
-<div class="cell"><div class="n">Nikhil</div><div class="v">£537</div><div class="x">own room</div></div>
-<div class="cell hl"><div class="n">Lewis</div><div class="v">£400</div><div class="x">own room</div></div>
-</div>
-<div class="two"><ul class="pros"><li>Private pool, own rooms</li><li>Close to Palma and the airport</li></ul><ul class="cons"><li>Non-refundable, plus a €300 deposit by bank transfer now</li><li>Check-in closes 21:00, so we'd need to agree a late arrival</li><li>No spa, no breakfast</li></ul></div>
-<div class="btns"><a class="btn" href="https://www.booking.com/hotel/es/cami-son-sales.en-gb.html?checkin=2026-10-01&amp;checkout=2026-10-04&amp;group_adults=3&amp;no_rooms=1&amp;selected_currency=GBP" target="_blank" rel="noopener">See it &amp; book on Booking.com →</a></div>
-</div></div>
-
-<div class="card">
-<div class="gal"><img src="img/fon1.jpg" alt="Fontanellas Playa pool and beach" loading="lazy"><img src="img/fon2.jpg" alt="Fontanellas Playa" loading="lazy"><img src="img/fon3.jpg" alt="Fontanellas Playa" loading="lazy"></div>
-<div class="body">
-<span class="tag">Best value</span>
-<div class="head"><h3>3 · Fontanellas Playa</h3><span class="price">£679 room · £226 each</span></div>
-<div class="meta">Playa de Palma · 4★ · 8.5 (2.6k reviews) · beachfront · 2 pools + spa with hot tub · 15–20 min taxi to Palma<br>1-bed apartment: 2 single beds + a sofa bed in the lounge</div>
-<div class="split">
-<div class="cell"><div class="n">Tobi</div><div class="v">£382</div><div class="x">bed</div></div>
-<div class="cell"><div class="n">Nikhil</div><div class="v">£382</div><div class="x">bed</div></div>
-<div class="cell hl"><div class="n">Lewis</div><div class="v">£324</div><div class="x">sofa bed</div></div>
-</div>
-<p class="fine">Pick this to keep more money for nights out.</p>
-<div class="two"><ul class="pros"><li>~£150 each cheaper than Artmadams</li><li>Beach, pools, spa, hot tub</li><li>Reception open until midnight</li></ul><ul class="cons"><li>One person on the sofa bed</li><li>£679 rate is non-changeable (£745 flexible)</li></ul></div>
-<div class="btns"><a class="btn" href="https://www.booking.com/hotel/es/h-a-fontanellas-playa.en-gb.html?checkin=2026-10-01&amp;checkout=2026-10-04&amp;group_adults=3&amp;no_rooms=1&amp;selected_currency=GBP" target="_blank" rel="noopener">See it &amp; book on Booking.com →</a></div>
-</div></div>
-
-<div class="card">
-<div class="gal"><img src="img/val1.jpg" alt="Valentin Grand Park pool" loading="lazy"><img src="img/val2.jpg" alt="Valentin Grand Park" loading="lazy"><img src="img/val3.jpg" alt="Valentin Grand Park" loading="lazy"></div>
-<div class="body">
-<span class="tag">Cheapest</span>
-<div class="head"><h3>4 · Valentin Grand Park</h3><span class="price">£496 room · £165 each</span></div>
-<div class="meta">Paguera (same area as the Coronado) · 4★ · 8.5 · 5 pools · breakfast included · 30 min to Palma<br>Studio with 3 single beds, so an even split</div>
-<div class="split">
-<div class="cell"><div class="n">Tobi</div><div class="v">£317</div><div class="x">real bed</div></div>
-<div class="cell"><div class="n">Nikhil</div><div class="v">£317</div><div class="x">real bed</div></div>
-<div class="cell"><div class="n">Lewis</div><div class="v">£318</div><div class="x">real bed</div></div>
-</div>
-<p class="fine">Taxis into Palma for Fri + Sat nights out add ~£60 each, which cancels out most of the saving.</p>
-<div class="two"><ul class="pros"><li>Cheapest, with breakfast</li><li>Real beds for all three</li></ul><ul class="cons"><li>Far from Palma nightlife</li><li>Family-oriented hotel</li></ul></div>
-<div class="btns"><a class="btn" href="https://www.booking.com/hotel/es/valentin-park-clubhotel.en-gb.html?checkin=2026-10-01&amp;checkout=2026-10-04&amp;group_adults=3&amp;no_rooms=1&amp;selected_currency=GBP" target="_blank" rel="noopener">See it &amp; book on Booking.com →</a></div>
-</div></div>
-
-<h2 id="calc">Split calculator</h2>
-<div class="calc">
-<div class="seg" id="hotels" role="group" aria-label="Place"></div>
+<aside><details class="panel" id="panel" open>
+<summary><span class="t">Split</span><span class="s" id="short"></span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+<div class="pbody">
 <div class="row">
-<div class="lab"><span>Lewis's total</span><b id="lV"></b></div>
-<input type="range" id="lew" min="250" max="600" step="1" value="330" aria-label="Lewis's total">
-<div class="brk">Tobi and Nikhil split the rest of the group total equally.</div>
+<div class="lab"><span>Lewis's max</span><b id="capV"></b></div>
+<input type="range" id="cap" min="250" max="600" step="5" value="330" aria-label="Lewis's max">
+<div class="hint">Lewis pays up to this; Tobi and Nikhil split the rest equally. Slide right for an even split.</div>
 </div>
 <div class="row">
 <div class="lab"><span>Lewis's bag</span></div>
-<div class="seg" id="bag" role="group" aria-label="Lewis bag" style="margin:0"><button type="button" data-v="0" aria-pressed="true">Underseat</button><button type="button" data-v="50" aria-pressed="false">10kg (+£50)</button></div>
+<div class="seg" id="bag" role="group" aria-label="Lewis's bag"><button type="button" data-v="0" aria-pressed="true">Underseat</button><button type="button" data-v="50" aria-pressed="false">10kg +£50</button></div>
 </div>
-<div class="split out" style="margin-top:18px">
-<div class="cell"><div class="n">Tobi</div><div class="v" id="oT"></div><div class="brk" id="bT"></div></div>
-<div class="cell"><div class="n">Nikhil</div><div class="v" id="oN"></div><div class="brk" id="bN"></div></div>
-<div class="cell"><div class="n">Lewis</div><div class="v" id="oL"></div><div class="brk" id="bL"></div></div>
+<div class="sum" id="sum"></div>
 </div>
-<div class="brk" id="grp" style="margin-top:10px"></div>
-<div class="btns"><button class="btn ghost" type="button" id="preset">Reset to the figures above</button><button class="btn ghost" type="button" id="even">Split the room evenly</button></div>
+</details></aside>
+
+<main>
+<h2>The plan in one line</h2>
+<div class="why">
+<b>Book one place for the three of us, split it, and everyone books their own flights</b> (Lewis's idea). This gets round loveholidays not letting Lewis join from Manchester, and it's cheaper than the Coronado package.
 </div>
+
+<h2>Options, ranked</h2>
+<p class="muted" style="margin-top:-6px">Each figure is that person's all-in cost: flights, room, airport taxis and tourist tax (food and nights out extra). The split follows the Split panel.</p>
+<div id="options"></div>
 
 <h2>What's already in the chat</h2>
 
 <div class="card">
 <div class="gal one"><img src="coronado.jpg" alt="Coronado Thalasso &amp; Spa pool" loading="lazy"></div>
 <div class="body">
-<span class="tag">Nikhil's pick, our backup</span>
+<span class="tag">Nikhil's pick, the backup</span>
 <div class="head"><h3>Coronado Thalasso &amp; Spa, Paguera</h3><span class="price">£379 pp package</span></div>
 <div class="meta">5★ · room only · loveholidays package with flights from London (Stansted 16:25 out, Gatwick 10:25 back) · underseat bag only</div>
-<ul class="cons" style="font-size:14px"><li>Lewis can't be added from Manchester online. He'd pay £380 on the London flights, or we'd need to phone loveholidays (01234 230 440, open until 20:30)</li><li>Realistically ~£450–470 each once bags, transfers and fees are added, and it's 30 min from Palma</li><li>Hotel-only (the £872 Nikhil saw) would be ~£443 each all-in, with everyone on their own flights</li></ul>
+<ul class="cons" style="font-size:14px"><li>Lewis can't be added from Manchester online: it's London flights for him too, or a phone call to loveholidays (01234 230 440, open until 20:30)</li><li>~£450–470 each once bags, transfers and fees are added, and it's 30 min from Palma</li></ul>
 <div class="btns"><a class="btn ghost" href="https://www.loveholidays.com/holidays/l/?date=2026-10-01&amp;departureAirports=LON&amp;boardBasis=&amp;masterId=284469&amp;rooms=3&amp;nights=3" target="_blank" rel="noopener">View on loveholidays →</a></div>
 </div></div>
 
@@ -185,7 +137,7 @@ input[type=range]:disabled{opacity:.35}
 <span class="tag">Nikhil's alternative</span>
 <div class="head"><h3>HM Alma Beach, C'an Pastilla</h3><span class="price">£439 pp package</span></div>
 <div class="meta">2 rooms (a double + a twin, both with a balcony and partial sea view) · same London flights as the Coronado · underseat bag only</div>
-<ul class="cons" style="font-size:14px"><li>~£475 each with transfer and fees, and still no Manchester option for Lewis</li><li>Upside: two proper rooms</li></ul>
+<ul class="cons" style="font-size:14px"><li>~£475 each with transfer and fees, and still no Manchester option</li><li>Upside: two proper rooms</li></ul>
 <div class="btns"><a class="btn ghost" href="https://www.loveholidays.com/checkout/offer-summary?shortRef=GB2G9B9Y" target="_blank" rel="noopener">View offer →</a></div>
 </div></div>
 
@@ -195,7 +147,7 @@ input[type=range]:disabled{opacity:.35}
 <tr><td><b>Tobi + Nikhil</b></td><td>Jet2 · Luton 16:55 → Palma 20:20</td><td>TUI · Palma 10:25 → Gatwick 11:50</td><td class="r">£110 each<br><span class="muted">10kg bag incl.</span></td></tr>
 <tr><td><b>Lewis</b></td><td>Ryanair · Manchester 19:20 → 22:55<br><span class="muted">or Jet2 17:55 → 21:40 (£46, 10kg incl.)</span></td><td>easyJet · Palma 10:30 → Manchester 12:15</td><td class="r">£111 underseat<br><span class="muted">~£161 with 10kg</span></td></tr>
 </table></div>
-<p class="muted" style="margin-top:8px">Nikhil works Thursday, so the 16:55 from Luton means leaving work by ~14:30. The Sunday flights leave 5 minutes apart, so we can share one taxi at ~08:15. For a lie-in, Jet2 Palma 12:40 → Luton is +£51 (Lewis's later flights roughly double).</p>
+<p class="muted" style="margin-top:8px">Nikhil works Thursday, so the 16:55 from Luton means leaving work by ~14:30. The Sunday flights leave 5 minutes apart, so we can share one taxi at ~08:15. The catch: a ~10:30 flight makes Saturday night hard. Later Sunday flights are +£51 from London (Jet2 12:40 → Luton) and roughly double from Manchester.</p>
 <div class="btns">
 <a class="btn ghost" href="https://www.jet2.com/" target="_blank" rel="noopener">Jet2 →</a>
 <a class="btn ghost" href="https://www.tui.co.uk/flight/" target="_blank" rel="noopener">TUI flights →</a>
@@ -206,66 +158,107 @@ input[type=range]:disabled{opacity:.35}
 
 <h2>To decide in the chat</h2>
 <div class="decide">
-<div class="q"><b>1. Which place?</b><span>Artmadams for central Palma plus a spa. Villa Velo if we want our own rooms. Fontanellas to save ~£150 each.</span></div>
+<div class="q"><b>1. Which place?</b><span>Artmadams for central Palma plus a spa. Villa Velo if we want our own rooms. Fontanellas to save money for nights out.</span></div>
 <div class="q"><b>2. Who's on the sofa bed?</b><span>Suggest Lewis.</span></div>
 <div class="q"><b>3. Lewis: 10kg bag or underseat only?</b><span>The bag is ~£50.</span></div>
-<div class="q"><b>4. Sunday: 10:25 back, or 12:40 for +£51?</b><span>The early flight makes Saturday night harder.</span></div>
+<div class="q"><b>4. Sunday: early flights, or later ones and a proper Saturday night?</b><span>Later is +£51 from London and roughly double from Manchester.</span></div>
 <div class="q"><b>5. Lewis: is the Sun 4 Oct rehearsal definitely off?</b><span>Please confirm before anyone pays; these are non-refundable.</span></div>
 </div>
 
 <h2>How to book (in this order)</h2>
 <ol class="steps">
 <li>Agree 1–5 above.</li>
-<li><b>Tobi books the room</b> for 3 adults, with a note: "2 guests arriving ~21:00, 1 guest ~23:30".</li>
+<li><b>Tobi books the place</b> for 3 adults, with a note: "2 guests arriving ~21:00, 1 guest ~23:30".</li>
 <li><b>Straight after, Tobi + Nikhil book flights</b> in one booking: Jet2 out, TUI back.</li>
 <li><b>Lewis books his own flights</b>: Ryanair or Jet2 out, easyJet back.</li>
-<li>Nikhil and Lewis send Tobi their room share. Tourist tax (~€10 each) is paid at check-in.</li>
+<li>Nikhil and Lewis send Tobi their share of the room. Tourist tax (~€10 each) is paid at check-in.</li>
 </ol>
 
 <h2>Worth knowing</h2>
 <div class="note"><ul>
-<li>Spanish hotels register every guest's ID at check-in, so squeezing a third person into a room for two won't work (and would only save ~£56).</li>
-<li>Booking flights and a room separately means no ATOL protection. Pay by credit card and get travel insurance.</li>
+<li>Spanish hotels register every guest's ID at check-in, so squeezing a third person into a room for two won't work.</li>
+<li>Booking flights and the room separately means no ATOL protection. Pay by credit card and get travel insurance.</li>
 <li>Several rooms showed "2 left". Re-check prices with all seats together before paying.</li>
 <li>We also priced Malta, Ibiza and Tenerife. All came out pricier, or meant much longer flights.</li>
 </ul></div>
 
 <footer>Research only, nothing booked. Prices approximate, checked Sat 26 Sep. Photos from Booking.com and loveholidays.</footer>
+</main>
 
+</div>
 <script>
 (function(){
-  // per hotel: group all-in total (underseat bag), Lewis's figure on the cards, and Lewis's even-split figure
-  var H={
-    art:{group:1480,card:330,even:492},
-    vil:{group:1474,card:400,even:495},
-    fon:{group:1088,card:324,even:369},
-    val:{group:952,card:318,even:318}
-  };
-  var st={h:"art",l:330,bag:0};
+  // One source of truth: every card and the split summary render from this.
+  var FLIGHT={T:110,N:110,L:111};
+  var HOTELS=[
+    {id:"art",name:"Hotel Artmadams",short:"Artmadams",tag:"Recommended",pick:true,room:1054,unit:"room",ex:{T:33,N:33,L:30},
+     beds:{T:"bed",N:"bed",L:"sofa bed"},
+     meta:"Palma city (Santa Catalina) · 4★ · 8.6 (2.1k reviews) · free spa: indoor + outdoor pools, hot tub, sauna · walk home from nights out<br>Triple room: 2 single beds + a sofa bed (25 m², snug)",
+     pros:["In the middle of Palma's nightlife, walk home","Best spa of the lot"],cons:["Priciest of the four","Snug room for three"],
+     fine:"Free cancellation until 29 Sep costs £1,168 instead.",
+     url:"https://www.booking.com/hotel/es/armadams.en-gb.html?checkin=2026-10-01&checkout=2026-10-04&group_adults=3&no_rooms=1&selected_currency=GBP"},
+    {id:"vil",name:"Villa Velo",short:"Villa Velo",tag:"Own rooms",room:1097,unit:"villa",ex:{T:14,N:14,L:18},
+     beds:{T:"own room",N:"own room",L:"own room"},
+     meta:"Marratxí · 9.8 (31 reviews) · private pool · 15 min to Palma and the airport<br>4 bedrooms, so everyone gets their own room",
+     pros:["Private pool, own rooms","Close to Palma and the airport"],cons:["Non-refundable, plus a €300 deposit by bank transfer now","Check-in closes 21:00, so we'd need to agree a late arrival","No spa, no breakfast"],
+     url:"https://www.booking.com/hotel/es/cami-son-sales.en-gb.html?checkin=2026-10-01&checkout=2026-10-04&group_adults=3&no_rooms=1&selected_currency=GBP"},
+    {id:"fon",name:"Fontanellas Playa",short:"Fontanellas",tag:"Best value",room:679,unit:"apartment",ex:{T:23,N:23,L:32},
+     beds:{T:"bed",N:"bed",L:"sofa bed"},
+     meta:"Playa de Palma · 4★ · 8.5 (2.6k reviews) · beachfront · 2 pools + spa with hot tub · 15–20 min taxi to Palma<br>1-bed apartment: 2 single beds + a sofa bed in the lounge",
+     pros:["Beach, pools, spa, hot tub","Reception open until midnight"],cons:["One person on the sofa bed","£679 rate is non-changeable (£745 flexible)"],
+     url:"https://www.booking.com/hotel/es/h-a-fontanellas-playa.en-gb.html?checkin=2026-10-01&checkout=2026-10-04&group_adults=3&no_rooms=1&selected_currency=GBP"},
+    {id:"val",name:"Valentin Grand Park",short:"Valentin",tag:"Cheapest",room:496,unit:"studio",ex:{T:42,N:42,L:42},
+     beds:{T:"bed",N:"bed",L:"bed"},
+     meta:"Paguera (same area as the Coronado) · 4★ · 8.5 · 5 pools · breakfast included · 30 min to Palma<br>Studio with 3 single beds",
+     pros:["Cheapest, with breakfast","Real beds for all three"],cons:["Far from Palma nightlife: taxis for Fri + Sat nights add ~£60 each","Family-oriented hotel"],
+     url:"https://www.booking.com/hotel/es/valentin-park-clubhotel.en-gb.html?checkin=2026-10-01&checkout=2026-10-04&group_adults=3&no_rooms=1&selected_currency=GBP"}
+  ];
+  var WHO={T:"Tobi",N:"Nikhil",L:"Lewis"};
+  var st={cap:330,bag:0};
   var $=function(id){return document.getElementById(id)};
   var gbp=function(v){return "£"+Math.round(v).toLocaleString("en-GB")};
-  function seg(el,items,cur,onPick){
-    el.innerHTML="";
-    items.forEach(function(it){
-      var b=document.createElement("button");b.type="button";b.textContent=it[1];
-      b.setAttribute("aria-pressed",String(it[0]===cur));
-      b.onclick=function(){onPick(it[0])};el.appendChild(b);
-    });
+  var esc=function(t){return String(t).replace(/&/g,"&amp;").replace(/"/g,"&quot;")};
+
+  function costs(h){
+    var even=h.room/3;
+    var base={T:even+FLIGHT.T+h.ex.T,N:even+FLIGHT.N+h.ex.N,L:even+FLIGHT.L+h.ex.L+st.bag};
+    var group=base.T+base.N+base.L;
+    var L=Math.min(base.L,st.cap),other=(group-L)/2;
+    return {T:Math.round(other),N:Math.round(other),L:Math.round(L)};
   }
+
+  function card(h,i){
+    return '<div class="card'+(h.pick?' pick':'')+'">'+
+      '<div class="gal"><img src="img/'+h.id+'1.jpg" alt="'+esc(h.name)+'"'+(i?' loading="lazy"':'')+'><img src="img/'+h.id+'2.jpg" alt="" loading="lazy"><img src="img/'+h.id+'3.jpg" alt="" loading="lazy"></div>'+
+      '<div class="body"><span class="tag">'+h.tag+'</span>'+
+      '<div class="head"><h3>'+(i+1)+' · '+h.name+'</h3><span class="price">'+gbp(h.room)+' '+h.unit+', 3 nights</span></div>'+
+      '<div class="meta">'+h.meta+'</div>'+
+      '<div class="split" data-h="'+h.id+'">'+["T","N","L"].map(function(k){
+        return '<div class="cell"><div class="n">'+WHO[k]+'</div><div class="v" data-k="'+k+'"></div><div class="x">'+h.beds[k]+'</div></div>';
+      }).join("")+'</div>'+
+      (h.fine?'<p class="fine">'+h.fine+'</p>':'')+
+      '<div class="two"><ul class="pros">'+h.pros.map(function(p){return "<li>"+p+"</li>"}).join("")+'</ul><ul class="cons">'+h.cons.map(function(p){return "<li>"+p+"</li>"}).join("")+'</ul></div>'+
+      '<div class="btns"><a class="btn" href="'+esc(h.url)+'" target="_blank" rel="noopener">See it &amp; book on Booking.com →</a></div>'+
+      '</div></div>';
+  }
+  $("options").innerHTML=HOTELS.map(card).join("");
+
   function render(){
-    seg($("hotels"),[["art","Artmadams"],["vil","Villa Velo"],["fon","Fontanellas"],["val","Valentin"]],st.h,function(v){st.h=v;st.l=H[v].card+st.bag;render()});
-    var g=H[st.h].group+st.bag,other=(g-st.l)/2;
-    $("lew").value=st.l;$("lV").textContent=gbp(st.l);
+    $("cap").value=st.cap;$("capV").textContent=gbp(st.cap);
     Array.prototype.forEach.call($("bag").children,function(b){b.setAttribute("aria-pressed",String(Number(b.dataset.v)===st.bag))});
-    $("oT").textContent=gbp(other);$("oN").textContent=gbp(other);$("oL").textContent=gbp(st.l);
-    $("bT").textContent="";$("bN").textContent="";$("bL").textContent="";
-    $("grp").textContent="Group total all-in: "+gbp(g);
+    var rows=HOTELS.map(function(h){
+      var c=costs(h);
+      document.querySelectorAll('.split[data-h="'+h.id+'"] .v').forEach(function(v){v.textContent=gbp(c[v.dataset.k])});
+      return '<tr><td>'+h.short+'</td><td class="r">'+gbp(c.T)+'</td><td class="r">'+gbp(c.L)+'</td></tr>';
+    }).join("");
+    $("sum").innerHTML='<table><tr><th></th><th class="r">Tobi / Nikhil</th><th class="r">Lewis</th></tr>'+rows+'</table>';
+    $("short").textContent="Lewis max "+gbp(st.cap)+(st.bag?" · 10kg bag":"");
   }
-  $("lew").oninput=function(){st.l=Number(this.value);render()};
-  $("bag").onclick=function(e){if(e.target.dataset.v!=null){var nb=Number(e.target.dataset.v);st.l+=nb-st.bag;st.bag=nb;render()}};
-  $("preset").onclick=function(){st.l=H[st.h].card+st.bag;render()};
-  $("even").onclick=function(){st.l=H[st.h].even+st.bag;render()};
+  $("cap").oninput=function(){st.cap=Number(this.value);render()};
+  $("bag").onclick=function(e){if(e.target.dataset.v!=null){st.bag=Number(e.target.dataset.v);render()}};
+  // collapsed by default on phones so it doesn't cover the page
+  if(window.matchMedia("(max-width:900px)").matches){$("panel").open=false}
   render();
 })();
 </script>
-</main></body></html>
+</body></html>
