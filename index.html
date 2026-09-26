@@ -229,7 +229,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px;margin:0}
 
   function card(h,i){
     return '<div class="card'+(h.pick?' pick':'')+'">'+
-      '<div class="gal"><img src="img/'+h.id+'1.jpg" alt="'+esc(h.name)+'"'+(i?' loading="lazy"':'')+'><img src="img/'+h.id+'2.jpg" alt="" loading="lazy"><img src="img/'+h.id+'3.jpg" alt="" loading="lazy"></div>'+
+      '<div class="gal"><img src="img/'+h.id+'1.jpg" alt="'+esc(h.name)+'"><img src="img/'+h.id+'2.jpg" alt=""><img src="img/'+h.id+'3.jpg" alt=""></div>'+
       '<div class="body"><span class="tag">'+h.tag+'</span>'+
       '<div class="head"><h3>'+(i+1)+' · '+h.name+'</h3><span class="price">'+gbp(h.room)+' '+h.unit+', 3 nights</span></div>'+
       '<div class="meta">'+h.meta+'</div>'+
